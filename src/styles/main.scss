@@ -10,7 +10,7 @@
 @import "fonts.scss";
 @import "buttons.scss";
 @import "faucet.scss";
-
+@import "adv.scss";
 html {
     display: block;
 }
@@ -115,7 +115,7 @@ body {
     }
 
     > .header-title {
-        align-items: center;
+        align-items: start;
         width: map-get($header, title_width);
 
         @media screen and (min-width: 1367px) {
@@ -130,7 +130,7 @@ body {
             display: none;
             width: 24px;
             height: 20px;
-            margin-top: -5px;
+            margin-top: 15px;
             cursor: pointer;
             position: relative;
             margin-right: 18px;
@@ -163,12 +163,13 @@ body {
         }
 
         > .logo {
-            background: url('../images/waves-124.svg') no-repeat 0 3px;
-            min-height: 44px;
+            background: url('../images/clb_logo.png') no-repeat 8px 0;
+            background-size: 48px;
+            min-height: 48px;
 
             a {
                 display: block;
-                height: 44px;
+                height: 48px;
                 position: absolute;
                 z-index: 1;
                 width: 220px;
@@ -176,8 +177,8 @@ body {
 
             &::after {
                 content: "Explorer";
-                left: 132px;
-                bottom: -8px;
+                left: 74px;
+                bottom: -9px;
                 position: relative;
                 @include font(headline1);
             }
@@ -203,9 +204,9 @@ body {
     }
 
     > .menu-list {
-        padding-top: 39px;
+        padding-top: 24px;
         flex-grow: 1;
-        min-height: calc(100vh - 350px);
+        min-height: calc(100vh - 420px);
 
         > .menu-item {
             position: relative;

@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import '../styles/main.scss';
 
 import Fallback from './Fallback';
-
+import Adv from './Adv';
 const delay = (t, v) => {
     return new Promise(function(resolve) {
         setTimeout(resolve.bind(null, v), t)
@@ -24,7 +24,7 @@ const Main = () => {
 
 Modal.setAppElement('#root');
 ReactDOM.render(<Main />, document.getElementById('root'));
-
+ReactDOM.render(<Adv/>, document.getElementById('adv-root'));
 if (module.hot) {
     module.hot.accept('./App', function() {
         console.log('Reloading App!');

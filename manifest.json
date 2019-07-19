@@ -1,9 +1,9 @@
 {
-  "short_name": "Waves Explorer",
-  "name": "Waves blockchain explorer",
+  "short_name": "CLB Explorer",
+  "name": "CLB blockchain explorer",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "favicon-16x16.png",
       "sizes": "16x16",
       "type": "image/png"
     }

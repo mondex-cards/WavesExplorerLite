@@ -1,0 +1,29 @@
+.adv-wrapper {
+    width: 350px;
+    margin: 155px 15px 15px;
+    flex: none;
+    #adv-root {
+        position: relative;
+
+        .adv {
+            .adv-item {
+                &:first-child {
+                    padding-top: 0;
+                }
+
+                padding-top: 10px;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+
+}

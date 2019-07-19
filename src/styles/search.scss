@@ -1,6 +1,26 @@
 @import "variables";
 @import "mixins.scss";
 
+.fast-link {
+    font-family: Roboto-Light, serif;
+    margin-bottom: 24px;
+    .link-item {
+        text-align: center;
+        a {
+            color: #0E3E9B;
+            text-decoration: none;
+            img {
+                height: 34px;
+                padding-bottom: 8px;
+            }
+            span {
+                font: normal normal normal 14px/1.4em helvetica-w01-roman,helvetica-w02-roman,helvetica-lt-w10-roman,sans-serif;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
 .search-box {
     position: relative;
 
