@@ -84,12 +84,13 @@ var config = {
         }),
         new webpack.HashedModuleIdsPlugin(),
         new CopyWebpackPlugin([{
-            from: path.join(sourcesPath, 'favicon.png'),
+            from: path.join(sourcesPath, 'favicon.ico'),
             to: buildPath
         }, {
             from: 'manifest.json',
             to: buildPath
-        }], { debug: true })
+        }
+        ], { debug: true })
     ],
     optimization: {
         splitChunks: {

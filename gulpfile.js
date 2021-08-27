@@ -4,7 +4,7 @@ const fs = require('fs');
 const awspublish = require('gulp-awspublish');
 const cloudfront = require('gulp-cloudfront-invalidate');
 var exec = require('child_process').exec;
-
+var GulpSSH = require('gulp-ssh')
 const config = {
     package: {
         source: './package.json'
@@ -14,6 +14,24 @@ const config = {
 };
 
 config.package.data = JSON.parse(fs.readFileSync(config.package.source));
+
+const remoteConfig = {
+    host: '159.203.83.166',
+    port: 22,
+    username: 'root',
+    privateKey: fs.readFileSync('/Users/lephuoccanh/.ssh/id_rsa')
+};
+
+const gulpSSH = new GulpSSH({
+    ignoreErrors: false,
+    sshConfig: remoteConfig
+});
+
+function uploadServer(){
+    return gulp
+        .src(['./dist/**'])
+        .pipe(gulpSSH.dest('/usr/project/clbexplore/'))
+}
 
 function awsCredentials(region, bucket) {
     return {
@@ -117,3 +135,7 @@ gulp.task('publish-official-prod', ['build-official-prod', 'upload-official-prod
 gulp.task('publish-devnet', ['build-devnet', 'upload-devnet', 'invalidate-devnet']);
 
 gulp.task('publish', ['publish-official-staging']);
+
+gulp.task('publish-digitalocean', function(){
+   uploadServer();
+});

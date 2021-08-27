@@ -361,6 +361,7 @@ body {
     @each $social_name, $url in $social {
         &.#{$social_name} {
             background: url(#{$url}) no-repeat;
+            background-size: contain;
         }
     }
 }
@@ -373,7 +374,7 @@ body {
         margin: 10px 8px 10px 0;
         opacity: 0.3;
         background: url(#{$url}) no-repeat;
-
+        background-size: contain;
         &:hover {
             opacity: 1;
         }
@@ -783,5 +784,17 @@ body {
         border-radius: 5.4px;
         background-color: map-get($colors, basic50);
         box-shadow: 0 3px 11px 0 rgba(0, 0, 0, 0.14);
+    }
+}
+
+@media screen and (min-width: 1024px)  {
+    .searchBar {
+        width: calc(100% - 400px);
+        position: fixed;
+        left: 360px;
+        background: #f8f9fb;
+        top: 0;
+        padding: 30px;
+        z-index: 2;
     }
 }

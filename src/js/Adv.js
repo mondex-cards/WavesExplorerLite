@@ -1,7 +1,7 @@
 import React from 'react';
 
 import adv1 from '../images/mondex/adv1.png';
-import adv2 from '../images/mondex/adv1.png';
+import adv2 from '../images/mondex/adv2.png';
 import adv_mondex_online from '../images/mondex/mondex_online_adv.png';
 import adv_sistemkoin from '../images/mondex/sistemKoin_adv.jpg';
 import adv_binance from '../images/mondex/binance_adv.jpg';

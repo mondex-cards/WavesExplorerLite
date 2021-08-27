@@ -96,7 +96,7 @@ class Search extends React.PureComponent {
         }
 
         return (
-            <div>
+            <div className={"searchBar"}>
                 <div className="grid grid-wrap fast-link lg-hide">
                     <div className="link-item">
                         <a href={"https://www.coinloanbank.com"}>

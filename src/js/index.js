@@ -24,7 +24,16 @@ const Main = () => {
 
 Modal.setAppElement('#root');
 ReactDOM.render(<Main />, document.getElementById('root'));
-ReactDOM.render(<Adv/>, document.getElementById('adv-root'));
+
+const hostname = window.location.hostname;
+
+if(hostname !== 'explorer.clbwallet.com'){
+    ReactDOM.render(<Adv/>, document.getElementById('adv-root'));
+} else {
+    const advRootWrapperEls = document.getElementById('adv-wrapper');
+    advRootWrapperEls.remove();
+}
+
 if (module.hot) {
     module.hot.accept('./App', function() {
         console.log('Reloading App!');

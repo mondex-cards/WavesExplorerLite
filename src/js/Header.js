@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from '../favicon-32x32.png';
+import logo from '../images/mondex/favicon-32x32.png';
 
 const Header = (props) => {
     return (
