@@ -29,12 +29,12 @@ const buildItems = () => {
         route: networkId => routeBuilder(networkId).peers.list,
         visible: alwaysVisible,
         icon: 'icon-peers'
-    }, {
+    }, /*{
         title: 'Nodes',
         route: networkId => routeBuilder(networkId).nodes.list,
         visible: alwaysVisible,
         icon: 'icon-nodes'
-    }, {
+    }, */{
         title: 'Faucet',
         route: networkId => routeBuilder(networkId).faucet,
         visible: visibleIfConfigured,

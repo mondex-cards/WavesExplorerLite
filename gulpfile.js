@@ -16,10 +16,10 @@ const config = {
 config.package.data = JSON.parse(fs.readFileSync(config.package.source));
 
 const remoteConfig = {
-    host: '159.203.83.166',
+    host: '209.97.170.130',
     port: 22,
     username: 'root',
-    privateKey: fs.readFileSync('/Users/lephuoccanh/.ssh/id_rsa')
+    privateKey: fs.readFileSync('/Users/lecanh/.ssh/id_ed25519')
 };
 
 const gulpSSH = new GulpSSH({
@@ -30,7 +30,7 @@ const gulpSSH = new GulpSSH({
 function uploadServer(){
     return gulp
         .src(['./dist/**'])
-        .pipe(gulpSSH.dest('/usr/project/clbexplore/'))
+        .pipe(gulpSSH.dest('/usr/project/qfree-explore/'))
 }
 
 function awsCredentials(region, bucket) {
@@ -87,54 +87,51 @@ gulp.task('clean', function (done) {
     ], done);
 });
 
-gulp.task('build-official-prod', ['clean'], function (done) {
+gulp.task('build-official-prod', gulp.series('clean', function (done) {
     buildApp('mainnet', 'prod', done);
-});
+}));
 
-gulp.task('build-official-staging', ['clean'], function (done) {
+gulp.task('build-official-staging', gulp.series('clean', function (done) {
     buildApp('mainnet', 'dev', done);
-});
+}));
 
 gulp.task('docker-official-prod', function (done) {
     dockerImage(done);
 });
 
-gulp.task('build-devnet', ['clean'], function (done) {
+gulp.task('build-devnet', gulp.series('clean', function (done) {
     buildApp('devnet', 'prod', done);
-});
+}));
 
-gulp.task('invalidate-official-staging', ['upload-official-staging'], function() {
-    return invalidateCache('EJSIVKMWKE29F');
-});
 
-gulp.task('invalidate-devnet', ['upload-devnet'], function() {
-    return invalidateCache('ECH0R3VC2E1B');
-});
-
-gulp.task('upload-official-staging', ['build-official-staging'], function () {
+gulp.task('upload-official-staging', gulp.series('build-official-staging', function () {
     var credentials = awsCredentials('eu-central-1', 'it-1166.wavesexplorer.com');
 
     return publishToS3(credentials, config.releaseDirectory + '/**');
-});
+}));
 
-gulp.task('upload-official-prod', ['build-official-prod'], function () {
+gulp.task('upload-official-prod', gulp.series('build-official-prod', function () {
     var credentials = awsCredentials('eu-central-1', 'wavesexplorer.com');
 
     return publishToS3(credentials, config.releaseDirectory + '/**');
-});
+}));
 
-gulp.task('upload-devnet', ['build-devnet'], function () {
+gulp.task('upload-devnet', gulp.series('build-devnet', function () {
     var credentials = awsCredentials('eu-west-1', 'devnet.wavesexplorer.com');
 
     return publishToS3(credentials, config.releaseDirectory + '/**');
-});
+}));
+gulp.task('invalidate-devnet', gulp.series('upload-devnet', function() {
+    return invalidateCache('ECH0R3VC2E1B');
+}));
+gulp.task('invalidate-official-staging', gulp.series('upload-official-staging', function() {
+    return invalidateCache('EJSIVKMWKE29F');
+}));
+gulp.task('publish-official-staging', gulp.series('build-official-staging', 'upload-official-staging', 'invalidate-official-staging'));
+gulp.task('publish-official-prod', gulp.series('build-official-prod', 'upload-official-prod'));
+gulp.task('publish-devnet', gulp.series('build-devnet', 'upload-devnet', 'invalidate-devnet'));
 
-
-gulp.task('publish-official-staging', ['build-official-staging', 'upload-official-staging', 'invalidate-official-staging']);
-gulp.task('publish-official-prod', ['build-official-prod', 'upload-official-prod']);
-gulp.task('publish-devnet', ['build-devnet', 'upload-devnet', 'invalidate-devnet']);
-
-gulp.task('publish', ['publish-official-staging']);
+gulp.task('publish', gulp.series('publish-official-staging'));
 
 gulp.task('publish-digitalocean', function(){
    uploadServer();

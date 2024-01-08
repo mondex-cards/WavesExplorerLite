@@ -163,9 +163,9 @@ body {
         }
 
         > .logo {
-            background: url('../images/clb_logo.png') no-repeat 8px 0;
-            background-size: 48px;
-            min-height: 48px;
+            background: url('../images/mondex/metanoble.png') no-repeat 8px 0;
+            background-size: contain;
+            min-height: 64px;
 
             a {
                 display: block;
@@ -175,13 +175,13 @@ body {
                 width: 220px;
             }
 
-            &::after {
+            /*&::after {
                 content: "Explorer";
                 left: 74px;
                 bottom: -9px;
                 position: relative;
                 @include font(headline1);
-            }
+            }*/
         }
     }
 }

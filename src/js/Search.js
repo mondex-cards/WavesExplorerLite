@@ -6,6 +6,8 @@ import webOfficeIcon from '../images/mondex/briefcase_icon.jpg';
 import pcIcon from '../images/mondex/pc_icon.jpg';
 import mobileIcon from '../images/mondex/phone_icon.jpg';
 import infoIcon from '../images/mondex/info_icon.jpg';
+import shopIcon from '../images/mondex/shop.png';
+import thePasteLNFTIcon from '../images/mondex/thepastelnft.png';
 
 const FADE_TIMEOUT = 2000;
 
@@ -99,33 +101,33 @@ class Search extends React.PureComponent {
             <div className={"searchBar"}>
                 <div className="grid grid-wrap fast-link lg-hide">
                     <div className="link-item">
-                        <a href={"https://www.coinloanbank.com"}>
+                        <a href={"https://Qfree.kr"}>
                             <img src={webOfficeIcon} alt={"Web Office"}/><br/>
                             <span>Web Office</span>
                         </a>
                     </div>
                     <div className="link-item">
-                        <a href={"https://www.clbwallet.com/"}>
-                            <img src={pcIcon} alt={"Web Office"}/><br/>
+                        <a href={"https://cpacwallet.com/"}>
+                            <img src={pcIcon} alt={"Web Wallet"}/><br/>
                             <span>Web Wallet</span>
                         </a>
                     </div>
                     <div className="link-item">
-                        <a href={"https://desktop.clbwallet.com/clb-client[mainnet]-setup-1.0.4-clb-2018-08-22-01.exe"}>
-                            <img src={pcIcon} alt={"Web Office"}/><br/>
-                            <span>PC Wallet</span>
+                        <a href={"https://online.fliphtml5.com/bkesg/rwoh/"}>
+                            <img src={shopIcon} alt={"Shop"}/><br/>
+                            <span>약정구매 리스트</span>
                         </a>
                     </div>
                     <div className="link-item">
-                        <a href={"https://play.google.com/store/apps/details?id=com.clbcoin.wallet"}>
-                            <img src={mobileIcon} alt={"Web Office"}/><br/>
-                            <span>App Wallet</span>
+                        <a href={"https://thepastelnft.com/"}>
+                            <img src={thePasteLNFTIcon} alt={"The Pastel"}/><br/>
+                            <span>The Pastel</span>
                         </a>
                     </div>
                     <div className="link-item">
-                        <a href={"http://clbcoin.info/"}>
-                            <img src={infoIcon} alt={"Web Office"}/><br/>
-                            <span>CLBCoin Wallet</span>
+                        <a href={"https://info.clbwallet.com/qfree/"}>
+                            <img src={infoIcon} alt={"Qfree Info"}/><br/>
+                            <span>Qfree Info</span>
                         </a>
                     </div>
                 </div>
