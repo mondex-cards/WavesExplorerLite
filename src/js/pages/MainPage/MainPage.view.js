@@ -18,7 +18,7 @@ export class MainPage extends React.Component {
             {/*<div className="info-box">
                     <RoutedNetworkInfoContainer />
                 </div>*/}
-            <div className="general-info">
+            {/*<div className="general-info">
                 <p>
                     <a href={"https://github.com/METANOBLE"} target={"_blank"}><span style={{fontWeight: "strong"}}>메타노블 SNS 링크 (Github)</span></a>
                 </p>
@@ -41,7 +41,7 @@ export class MainPage extends React.Component {
                     <a href={"https://t.me/+M50WgWe7XXE1YTI1"}
                        target={"_blank"}><span style={{fontWeight: "strong"}}>TELEGRAM</span></a>
                 </p>
-            </div>
+            </div>*/}
             <div className="grid grid-wrap">
                 <div className="column-6 column-sm-12">
                     <RoutedLastBlockListContainer/>

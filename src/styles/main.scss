@@ -163,8 +163,8 @@ body {
         }
 
         > .logo {
-            background: url('../images/mondex/metanoble.png') no-repeat 8px 0;
-            background-size: contain;
+            background: url('../images/mondex/metanoble.png') no-repeat -6px 5px;
+            background-size: 72px;
             min-height: 64px;
 
             a {
@@ -175,13 +175,13 @@ body {
                 width: 220px;
             }
 
-            /*&::after {
+            &::after {
                 content: "Explorer";
                 left: 74px;
                 bottom: -9px;
                 position: relative;
                 @include font(headline1);
-            }*/
+            }
         }
     }
 }
