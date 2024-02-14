@@ -107,19 +107,19 @@ class Search extends React.PureComponent {
                         </a>
                     </div>
                     <div className="link-item">
-                        <a href={"https://cpacwallet.com/"}>
+                        <a href={"https://cpacwallet.com/"} target={"_blank"}>
                             <img src={pcIcon} alt={"Web Wallet"}/><br/>
                             <span>Web Wallet</span>
                         </a>
                     </div>
                     <div className="link-item">
-                        <a href={"https://online.fliphtml5.com/bkesg/rwoh/"}>
+                        <a href={"http://stoex.kr/"} target={"_blank"}>
                             <img src={shopIcon} alt={"Shop"}/><br/>
                             <span>약정구매 리스트</span>
                         </a>
                     </div>
                     <div className="link-item">
-                        <a href={"https://thepastelnft.com/"}>
+                        <a href={"https://thepastelnft.com/"} target={"_blank"}>
                             <img src={thePasteLNFTIcon} alt={"The Pastel"}/><br/>
                             <span>The Pastel</span>
                         </a>
